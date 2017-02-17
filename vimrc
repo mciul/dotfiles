@@ -117,10 +117,9 @@ inoremap <S-Tab> <c-n>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" Quicker window movement
-" Doesn't work on crunch:
-
+" Tmux-compatible window movement
 let g:tmux_navigator_no_mappings = 1
+
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
