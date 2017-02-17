@@ -16,8 +16,6 @@ ln -s dotfiles/vimrc .vimrc
 
 ln -s dotfiles/tmux.conf .tmux.conf
 
-mkdir -p .vim
-
-ln -s vim_plugin .vim/plugin
+mkdir -p .vim && cd .vim && ln -s ../dotfiles/vim_plugin plugin
 
 Open Vim and run :PluginInstall
