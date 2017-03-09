@@ -144,5 +144,14 @@ map <Leader>a :call RunAllSpecs()<CR>
 " let g:rspec_command = "Dispatch rspec {spec}"
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
+" fugitive key mappings
+
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gl :Glog<cr>
+nmap <leader>gc :Gcommit -av<cr>
+nmap <leader>gp :Gpush<cr>
+
 " Turn on matchit
 runtime macros/matchit.vim
