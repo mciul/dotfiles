@@ -1,4 +1,5 @@
 let mapleader = " "
+let maplocalleader = "\\"
 
 set nocompatible              " be iMproved, required
 
@@ -159,11 +160,16 @@ runtime macros/matchit.vim
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
 " move the current line up or down
-noremap - ddp
-noremap _ kmzjdd`zP
+noremap <leader>- ddp
+noremap <leader>_ kmzjdd`zP
 
 " turn word to uppercase in insert mode
 inoremap <c-u> <esc>viwUea
+nnoremap <leader><c-u> mzviwU`z
+
+" quickly edit and source vimrc file
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 
 

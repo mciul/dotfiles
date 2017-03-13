@@ -48,6 +48,9 @@ history() {                  #5 overrides build in history to sync it before dis
 
 PROMPT_COMMAND=_bash_history_sync
 
+# Include date and time in prompt
+export PS1='\D{%b%d %T} \[\e[1m\]\h:\W $\[\e[0m\] '
+
 export PERLVERSION=`perl -le '($_=$])=~s/[.0]+/./g; print'`
 
 # Set vi as the history editor
