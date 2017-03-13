@@ -155,3 +155,8 @@ nmap <leader>gp :Gpush<cr>
 
 " Turn on matchit
 runtime macros/matchit.vim
+
+" Tentative - stuff recommended in "Learn Vimscript the Hard Way"
+
+:map - ddp
+:map _ kmzjdd`zP

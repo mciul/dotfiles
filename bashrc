@@ -54,3 +54,6 @@ export PERLVERSION=`perl -le '($_=$])=~s/[.0]+/./g; print'`
 #
 # To use it, type <ESC>k at the command prompt
 set -o vi
+
+# Set shell timeout to one week
+export $TMOUT=$((60*60*24*7))
