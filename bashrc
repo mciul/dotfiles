@@ -59,4 +59,4 @@ export PERLVERSION=`perl -le '($_=$])=~s/[.0]+/./g; print'`
 set -o vi
 
 # Set shell timeout to one week
-export $TMOUT=$((60*60*24*7))
+export TMOUT=$((60*60*24*7))

@@ -77,7 +77,7 @@ set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:».,trail:·,nbsp:⎵
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
@@ -100,20 +100,11 @@ function! NumberToggle()
 endfunction
 
 nnoremap <leader>n :call NumberToggle()<cr>
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+
+" Use tab as escape character
+inoremap <esc> <nop>
+inoremap <tab> <esc>
+inoremap jk <esc>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -171,5 +162,11 @@ nnoremap <leader><c-u> mzviwU`z
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+"abbreviations
 
+iabbrev @@ mciul@ldc.upenn.edu
+iabbrev teh the
+
+"settings for plain text files
+autocmd FileType text setlocal wrap linebreak nolist
 
