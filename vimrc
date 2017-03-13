@@ -136,27 +136,34 @@ let g:syntastic_eruby_ruby_quiet_messages =
 let g:syntastic_ruby_checkers = ['rubocop']
 
 " RSpec.vim mappings
-map <Leader>t :w<cr>:call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+nnoremap <Leader>t :w<cr>:call RunCurrentSpecFile()<CR>
+nnoremap <Leader>s :call RunNearestSpec()<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
+nnoremap <Leader>a :call RunAllSpecs()<CR>
 " use dispatch
 " let g:rspec_command = "Dispatch rspec {spec}"
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 " fugitive key mappings
 
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gl :Glog<cr>
-nmap <leader>gc :Gcommit -av<cr>
-nmap <leader>gp :Gpush<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gc :Gcommit -av<cr>
+nnoremap <leader>gp :Gpush<cr>
 
 " Turn on matchit
 runtime macros/matchit.vim
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
-:map - ddp
-:map _ kmzjdd`zP
+" move the current line up or down
+noremap - ddp
+noremap _ kmzjdd`zP
+
+" turn word to uppercase in insert mode
+inoremap <c-u> <esc>viwUea
+
+
+
