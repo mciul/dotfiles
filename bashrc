@@ -1,5 +1,14 @@
 [ -e ~/.bashrc.local ] && source ~/.bashrc.local
 
+# detect what kind of system we're running on
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+  platform='freebsd'
+fi
+
 # environment stuff to find things that you might need
 LESS=-rXF; export LESS
 EDITOR=/usr/bin/vi; export EDITOR
@@ -16,7 +25,11 @@ PATH=$PATH:~/bin
 
 alias dus='du -s'
 alias env='printenv'
-alias ls='ls --color=auto'
+if [[ $platform == 'linux' ]]; then
+  alias ls='ls --color=auto'
+elif [[ $platform == 'freebsd' ]]; then
+  alias ls='ls -G'
+fi
 alias lf='ls -hF'
 alias lc='wc -l'
 alias ll='/bin/ls -l'        # directory with size
@@ -26,10 +39,11 @@ alias llla='/bin/ls -lLA'
 
 llth () 
 { 
-    ls -lt $1 | head
+  ls -lt $1 | head
 }
 
 # shares history between tabs with prompt_command
+SHELL_SESSION_HISTORY=0
 HISTSIZE=9000
 HISTFILESIZE=$HISTSIZE
 HISTCONTROL=ignorespace:ignoredups
