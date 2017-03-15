@@ -148,11 +148,14 @@ nnoremap <leader>gp :Gpush<cr>
 " Turn on matchit
 runtime macros/matchit.vim
 
+" Make Y act like C and D, not like yy
+nnoremap Y y$
+
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
 " move the current line up or down
-noremap <leader>- ddp
-noremap <leader>_ kmzjdd`zP
+noremap <leader>- kmzjdd`zP
+noremap <leader>_ ddp
 
 " turn word to uppercase in insert mode
 inoremap <c-u> <esc>viwUea
@@ -168,5 +171,8 @@ iabbrev @@ mciul@ldc.upenn.edu
 iabbrev teh the
 
 "settings for plain text files
-autocmd FileType text setlocal wrap linebreak nolist
+augroup myvimrc
+  autocmd!
+  autocmd FileType text setlocal wrap linebreak nolist
+augroup END
 
