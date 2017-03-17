@@ -49,6 +49,8 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
 
+" TODO: try Plugin 'AndrewRadev/splitjoin'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -151,6 +153,9 @@ runtime macros/matchit.vim
 " Make Y act like C and D, not like yy
 nnoremap Y y$
 
+"make the first two vertical splits 85 columns wide
+nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
+
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
 " move the current line up or down
@@ -162,6 +167,7 @@ inoremap <c-u> <esc>viwUea
 nnoremap <leader><c-u> mzviwU`z
 
 " quickly edit and source vimrc file
+" TODO: figure out how to connect with fugitive
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -175,4 +181,3 @@ augroup myvimrc
   autocmd!
   autocmd FileType text setlocal wrap linebreak nolist
 augroup END
-
