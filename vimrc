@@ -75,6 +75,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" configure syntastic syntax checking to check on open as well as save
+let g:syntastic_check_on_open=1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_eruby_ruby_quiet_messages =
+      \ {"regex": "possibly useless use of a variable in void context"}
+
+" use rubocop instead of mri
+let g:syntastic_ruby_checkers = ['rubocop']
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -123,15 +132,6 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
-
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-      \ {"regex": "possibly useless use of a variable in void context"}
-
-" use rubocop instead of mri
-let g:syntastic_ruby_checkers = ['rubocop']
 
 " RSpec.vim mappings
 nnoremap <Leader>t :w<cr>:call RunCurrentSpecFile()<CR>
