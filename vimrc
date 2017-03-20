@@ -112,11 +112,6 @@ end
 set number
 
 
-" Use tab as escape character
-inoremap <esc> <nop>
-inoremap <tab> <esc>
-inoremap jk <esc>
-
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -155,6 +150,7 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gc :Gcommit -av<cr>
 nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gu :Gpull<cr>
 
 " Turn on matchit
 runtime macros/matchit.vim
@@ -164,6 +160,17 @@ nnoremap Y y$
 
 "make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
+
+" Use tab as escape character
+inoremap <esc> <nop>
+inoremap <tab> <esc>
+inoremap jk <esc>
+
+" exit insert mode and save
+inoremap kj <esc>:w<cr>
+
+"quick save
+nnoremap <leader>w :w<cr>
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
