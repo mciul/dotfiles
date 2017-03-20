@@ -171,11 +171,10 @@ inoremap kj <esc>:w<cr>
 " quick save
 nnoremap <leader>w :w<cr>
 
-" Tentative - stuff recommended in "Learn Vimscript the Hard Way"
+" turn off search highlighting
+nnoremap <leader>h :nohl<cr>
 
-" move the current line up or down
-noremap <leader>- kmzjdd`zP
-noremap <leader>_ ddp
+" Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
 " turn word to uppercase in insert mode
 inoremap <c-u> <esc>viwUea
