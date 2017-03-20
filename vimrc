@@ -89,19 +89,27 @@ set textwidth=80
 "set colorcolumn=+1
 
 " Numbers
-set relativenumber
-set number
 function! NumberToggle()
   if(&relativenumber ==1)
     set norelativenumber
     set number
   else
-    set relativenumber
     set number
+    " TODO: make sure this does the right thing in version 8
+    set relativenumber
   endif
 endfunction
 
-nnoremap <leader>n :call NumberToggle()<cr>
+if (v:version < 703)
+  echo "Relative numbers not supported"
+else
+  set relativenumber
+  nnoremap <leader>n :call NumberToggle()<cr>
+  echo "Relative numbers enabled"
+end
+
+set number
+
 
 " Use tab as escape character
 inoremap <esc> <nop>
