@@ -47,7 +47,10 @@ Plugin 'tpope/vim-commentary'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'scrooloose/syntastic'
+" Having lots of trouble with syntastic right now.
+" Try again later maybe?
+" Also, make sure Rubocop is installed
+" Plugin 'scrooloose/syntastic'
 
 " TODO: try Plugin 'AndrewRadev/splitjoin'
 
@@ -101,11 +104,9 @@ function! NumberToggle()
 endfunction
 
 if (v:version < 703)
-  echo "Relative numbers not supported"
 else
   set relativenumber
   nnoremap <leader>n :call NumberToggle()<cr>
-  echo "Relative numbers enabled"
 end
 
 set number
