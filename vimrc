@@ -158,18 +158,17 @@ runtime macros/matchit.vim
 " Make Y act like C and D, not like yy
 nnoremap Y y$
 
-"make the first two vertical splits 85 columns wide
+" make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
 
 " Use tab as escape character
-inoremap <esc> <nop>
 inoremap <tab> <esc>
 inoremap jk <esc>
 
 " exit insert mode and save
 inoremap kj <esc>:w<cr>
 
-"quick save
+" quick save
 nnoremap <leader>w :w<cr>
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
