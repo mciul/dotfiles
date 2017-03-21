@@ -171,8 +171,8 @@ inoremap kj <esc>:w<cr>
 " quick save
 nnoremap <leader>w :w<cr>
 
-" turn off search highlighting
-nnoremap <leader>h :nohl<cr>
+" turn off search highlighting (keys borrowed from vim-unimpaired)
+nnoremap ]oh :nohl<cr>
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
