@@ -155,6 +155,10 @@ nnoremap <leader>gu :Gpull<cr>
 " Turn on matchit
 runtime macros/matchit.vim
 
+" scroll with the space bar
+
+nnoremap <leader><space> <C-f>
+
 " Make Y act like C and D, not like yy
 nnoremap Y y$
 
