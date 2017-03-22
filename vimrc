@@ -197,6 +197,13 @@ augroup mytext
   autocmd FileType text setlocal wrap linebreak nolist
 augroup END
 
+" ruby macros
+
+augroup myruby
+  autocmd!
+  autocmd FileType ruby nnoremap <localleader>d Idef <cr>end<esc>kA
+augroup END
+
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
 " turn word to uppercase in insert mode
