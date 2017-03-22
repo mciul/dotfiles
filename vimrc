@@ -40,19 +40,24 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
+
+" plugins to try (again) later
+"
+" Plugin 'ctrlpvim/ctrlp.vim'
+"
 " Having lots of trouble with syntastic right now.
 " Try again later maybe?
 " Also, make sure Rubocop is installed
 " Plugin 'scrooloose/syntastic'
-
-" TODO: try Plugin 'AndrewRadev/splitjoin'
+"
+" Plugin 'AndrewRadev/splitjoin'
+" Plugin 'tpope/vim-unimpaired'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,6 +88,9 @@ let g:syntastic_eruby_ruby_quiet_messages =
 
 " use rubocop instead of mri
 let g:syntastic_ruby_checkers = ['rubocop']
+
+set path+=**
+set wildmenu
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -120,6 +128,7 @@ end
 
 set number
 
+set showcmd
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -133,6 +142,8 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
 
+" TODO: make the rspec command work everywhere
+"
 " RSpec.vim mappings
 nnoremap <Leader>t :w<cr>:call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
@@ -193,6 +204,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 iabbrev @@ mciul@ldc.upenn.edu
 iabbrev teh the
+
+" TODO - settings for lhaskell?
 
 "settings for plain text files
 augroup myvimrc
