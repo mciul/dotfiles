@@ -176,7 +176,7 @@ nnoremap Y y$
 " make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
 
-" Use tab as escape character
+" Escape alternatives
 inoremap <tab> <esc>
 inoremap jk <esc>
 
@@ -188,6 +188,14 @@ nnoremap <leader>w :w<cr>
 
 " turn off search highlighting (keys borrowed from vim-unimpaired)
 nnoremap ]oh :nohl<cr>
+
+"settings for plain text files
+
+augroup mytext
+  autocmd!
+  autocmd BufRead,BufNewFile *.txt setfiletype text
+  autocmd FileType text setlocal wrap linebreak nolist
+augroup END
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
 
@@ -206,9 +214,3 @@ iabbrev @@ mciul@ldc.upenn.edu
 iabbrev teh the
 
 " TODO - settings for lhaskell?
-
-"settings for plain text files
-augroup myvimrc
-  autocmd!
-  autocmd FileType text setlocal wrap linebreak nolist
-augroup END
