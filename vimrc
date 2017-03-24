@@ -191,9 +191,12 @@ nnoremap Y y$
 
 " status line
 :set statusline=%f         " Path to the file
-:set statusline+=\ -\      " Separator
-:set statusline+=FileType: " Label
+:set statusline+=\         " Separator space
 :set statusline+=%y        " Filetype of the file
+:set statusline+=%=        " Switch to the right side
+:set statusline+=%l        " Current line
+:set statusline+=,         " Separator
+:set statusline+=%-6.c     " Current column
 
 "settings for plain text files
 
