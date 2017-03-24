@@ -167,7 +167,6 @@ nnoremap <leader>gu :Gpull<cr>
 runtime macros/matchit.vim
 
 " scroll with the space bar
-
 nnoremap <leader><space> <C-f>
 
 " make the first two vertical splits 85 columns wide
@@ -179,15 +178,22 @@ inoremap jk <esc>
 " exit insert mode and save
 inoremap kj <esc>:w<cr>
 
-" quick save
+" quick save without chording
 nnoremap <leader>w :w<cr>
 
 " insert a space without leaving normal mode
+" note that this will still use space even if I change the leader
 nnoremap <space>p a <esc>
 nnoremap <space>P i <esc>
 
 " Make Y act like C and D, not like yy
 nnoremap Y y$
+
+" status line
+:set statusline=%f         " Path to the file
+:set statusline+=\ -\      " Separator
+:set statusline+=FileType: " Label
+:set statusline+=%y        " Filetype of the file
 
 "settings for plain text files
 
