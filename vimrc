@@ -46,6 +46,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-unimpaired'
 
 " plugins to try (again) later
 "
@@ -57,7 +58,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'scrooloose/syntastic'
 "
 " Plugin 'AndrewRadev/splitjoin'
-" Plugin 'tpope/vim-unimpaired'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -170,14 +170,10 @@ runtime macros/matchit.vim
 
 nnoremap <leader><space> <C-f>
 
-" Make Y act like C and D, not like yy
-nnoremap Y y$
-
 " make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
 
 " Escape alternatives
-inoremap <tab> <esc>
 inoremap jk <esc>
 
 " exit insert mode and save
@@ -186,8 +182,12 @@ inoremap kj <esc>:w<cr>
 " quick save
 nnoremap <leader>w :w<cr>
 
-" turn off search highlighting (keys borrowed from vim-unimpaired)
-nnoremap ]oh :nohl<cr>
+" insert a space without leaving normal mode
+nnoremap <space>p a <esc>
+nnoremap <space>P i <esc>
+
+" Make Y act like C and D, not like yy
+nnoremap Y y$
 
 "settings for plain text files
 
@@ -201,7 +201,12 @@ augroup END
 
 augroup myruby
   autocmd!
-  autocmd FileType ruby nnoremap <localleader>d Idef <cr>end<esc>kA
+  " create a function definition
+  autocmd FileType ruby nnoremap <localleader>d o<cr>def <cr>end<esc>kA
+  " move to the next end statement
+  autocmd FileType ruby nnoremap <localleader>e /\v<end$<cr>$:nohl<cr>
+  " create a class from the word under the cursor
+  autocmd FileType ruby nnoremap <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
 augroup END
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
