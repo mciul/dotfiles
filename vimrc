@@ -217,6 +217,7 @@ set statusline+=,         " Separator
 set statusline+=%-6.c     " Current column
 " }}}
 
+" filetype settings ---------------------------------------------- {{{
 " text filetype settings ----------------------------------- {{{
 augroup filetype_text
   autocmd!
@@ -240,6 +241,7 @@ augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
+" }}}
 " }}}
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way" - {{{
