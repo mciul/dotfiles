@@ -202,19 +202,25 @@ nnoremap Y y$
 
 "settings for plain text files
 
-augroup mytext
+augroup filetype_text
   autocmd!
   autocmd BufRead,BufNewFile *.txt setfiletype text
   autocmd FileType text setlocal wrap linebreak nolist
 augroup END
 
 " ruby macros
-augroup myruby
+augroup filetype_ruby
   autocmd!
   " create a function definition
   autocmd FileType ruby nnoremap <localleader>d o<cr>def <cr>end<esc>kA
   " create a class from the word under the cursor
   autocmd FileType ruby nnoremap <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
+augroup END
+
+" vimscript settings
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way"
