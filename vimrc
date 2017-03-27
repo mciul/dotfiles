@@ -39,6 +39,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -191,6 +192,7 @@ nnoremap Y y$
 
 " status line
 :set statusline=%f         " Path to the file
+:set statusline+=%4m         " modified flag
 :set statusline+=\         " Separator space
 :set statusline+=%y        " Filetype of the file
 :set statusline+=%=        " Switch to the right side
@@ -207,13 +209,10 @@ augroup mytext
 augroup END
 
 " ruby macros
-
 augroup myruby
   autocmd!
   " create a function definition
   autocmd FileType ruby nnoremap <localleader>d o<cr>def <cr>end<esc>kA
-  " move to the next end statement
-  autocmd FileType ruby nnoremap <localleader>e /\v<end$<cr>$:nohl<cr>
   " create a class from the word under the cursor
   autocmd FileType ruby nnoremap <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
 augroup END
