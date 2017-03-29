@@ -263,4 +263,5 @@ iabbrev @@ mciul@ldc.upenn.edu
 iabbrev teh the
 
 " TODO - settings for lhaskell?
+" normal mode: ^ > < " insert mode: C-T, C-D
 " }}}
