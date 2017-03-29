@@ -246,6 +246,8 @@ augroup END
 
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way" - {{{
 
+set foldlevelstart=0
+
 " turn word to uppercase in insert mode
 inoremap <c-u> <esc>viwUea
 nnoremap <leader><c-u> mzviwU`z
