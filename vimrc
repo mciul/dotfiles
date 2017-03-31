@@ -199,6 +199,12 @@ nnoremap <leader>w :w<cr>
 nnoremap <space>p a <esc>
 nnoremap <space>P i <esc>
 
+" insert any character without leaving normal mode
+" to insert after, do <leader>r[any character]
+" to insert before, do <leader>R[any character]
+nnoremap <leader>r a <esc>r
+nnoremap <leader>R i <esc>r
+
 " Make Y act like C and D, not like yy
 nnoremap Y y$
 " }}}
