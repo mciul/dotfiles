@@ -211,7 +211,7 @@ nnoremap Y y$
 
 " status line ----------------------------------------------------- {{{
 set statusline=%f         " Path to the file
-set statusline+=%4r       " readonly flag
+set statusline+=%5r       " readonly flag
 set statusline+=%4m       " modified flag
 set statusline+=%a        " arglist status
 set statusline+=\         " Separator space
