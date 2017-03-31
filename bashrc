@@ -1,4 +1,4 @@
- -e ~/.bashrc.local ] && source ~/.bashrc.local
+[ -e ~/.bashrc.local ] && source ~/.bashrc.local
 
 # detect what kind of system we're running on
 platform='unknown'
