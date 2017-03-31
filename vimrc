@@ -184,9 +184,6 @@ nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
 " Switching modes ------------------------------------------ {{{
 " Escape alternatives
 inoremap jk <esc>
-
-" exit insert mode and save
-inoremap kj <esc>:w<cr>
 " }}}
 
 " Editing in normal mode ------------------------------------------ {{{
