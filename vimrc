@@ -151,6 +151,9 @@ function! NumberToggle()
   endif
 endfunction
 
+" <leader>n is intended to toggle between regular and relative line
+" numbers. But keep in mind that vim-unimpaired provides options for turning
+" them on and off separately  (con and cor)
 if (v:version >= 703)
   set relativenumber
   nnoremap <leader>n :call NumberToggle()<cr>
