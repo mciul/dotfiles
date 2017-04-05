@@ -132,7 +132,11 @@ set nojoinspaces
 
 " Make it obvious where 80 characters is
 set textwidth=80
-"set colorcolumn=+1
+
+if (v:version >= 703)
+  set colorcolumn=+1
+  " disable end of line highlighting?
+end
 " }}}
 
 " line numbers ------------------------------------------------- {{{
@@ -147,10 +151,11 @@ function! NumberToggle()
   endif
 endfunction
 
-if (v:version < 703)
-else
+if (v:version >= 703)
   set relativenumber
   nnoremap <leader>n :call NumberToggle()<cr>
+else
+  nnoremap <leader>n :echo "Relative number not available in this version"<cr>
 end
 
 set number
