@@ -9,7 +9,8 @@ set backspace=indent,eol,start
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
+set history=100
+set undolevels=100
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set hlsearch      " Highlight all matches after entering search pattern
@@ -19,12 +20,6 @@ set ignorecase    " Case insensitive pattern matching
 set smartcase     " Overrides ignorecase if pattern contains upcase
 set path+=**      " search the current directory for file arg
 set wildmenu      " list wildcard matches
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
 " }}}
 
 " Vundle -------------------------------------------------------- {{{
@@ -84,6 +79,21 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" }}}
+
+
+" colors ----------------------------------------------------------- {{{
+" Setup term color support - this might be unnecessary
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM ==
+  "gnome-terminal"
+  set t_Co=256
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
 " }}}
 
 " syntastic ------------------------------------------------------- {{{
