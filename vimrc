@@ -84,8 +84,7 @@ filetype plugin indent on    " required
 
 " colors ----------------------------------------------------------- {{{
 " Setup term color support - this might be unnecessary
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM ==
-  "gnome-terminal"
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
   set t_Co=256
 endif
 
@@ -141,6 +140,22 @@ set list listchars=tab:».,trail:·,nbsp:⎵
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
+
+" function from Drew Neil - vimcasts episode 4
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+" Delete trailing whitespace
+nnoremap <leader>W :call <SID>StripTrailingWhitespaces()<cr>
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -295,6 +310,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 iabbrev @@ mciul@ldc.upenn.edu
 iabbrev teh the
+iabbrev serach search
 
 " TODO - settings for lhaskell?
 " normal mode: ^ > < " insert mode: C-T, C-D
