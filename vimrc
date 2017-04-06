@@ -60,7 +60,7 @@ Plugin 'tpope/vim-unimpaired'
 " Having lots of trouble with syntastic right now.
 " Try again later maybe?
 " Also, make sure Rubocop is installed
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 "
 " Plugin 'AndrewRadev/splitjoin'
 
@@ -94,7 +94,7 @@ let g:syntastic_eruby_ruby_quiet_messages =
       \ {"regex": "possibly useless use of a variable in void context"}
 
 " use rubocop instead of mri
-let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_ruby_checkers = ['MRI', 'rubocop']
 " }}}
 
 " matchit --------------------------------------------------------- {{{
@@ -132,7 +132,11 @@ set nojoinspaces
 
 " Make it obvious where 80 characters is
 set textwidth=80
-"set colorcolumn=+1
+
+if (v:version >= 703)
+  set colorcolumn=+1
+  " disable end of line highlighting?
+end
 " }}}
 
 " line numbers ------------------------------------------------- {{{
@@ -147,10 +151,14 @@ function! NumberToggle()
   endif
 endfunction
 
-if (v:version < 703)
-else
+" <leader>n is intended to toggle between regular and relative line
+" numbers. But keep in mind that vim-unimpaired provides options for turning
+" them on and off separately  (con and cor)
+if (v:version >= 703)
   set relativenumber
   nnoremap <leader>n :call NumberToggle()<cr>
+else
+  nnoremap <leader>n :echo "Relative number not available in this version"<cr>
 end
 
 set number
@@ -211,7 +219,7 @@ nnoremap Y y$
 
 " status line ----------------------------------------------------- {{{
 set statusline=%f         " Path to the file
-set statusline+=%4r       " readonly flag
+set statusline+=%5r       " readonly flag
 set statusline+=%4m       " modified flag
 set statusline+=%a        " arglist status
 set statusline+=\         " Separator space
@@ -275,3 +283,23 @@ iabbrev teh the
 " TODO - settings for lhaskell?
 " normal mode: ^ > < " insert mode: C-T, C-D
 " }}}
+"
+"
+" Syntastic problem:
+"
+" Error detected while processing function
+" <SNR>55_BufEnterHook..<SNR>55_UpdateErrors..<SNR>55_CacheErrors..37..SyntaxCheckers_vim_vimlint_IsAvailable:
+" line    1:
+" E118: Too many arguments for function: globpath
+" E15: Invalid expression: globpath(&runtimepath, 'autoload/vimlparser.vim', 1)
+" line    2:
+" E118: Too many arguments for function: globpath
+" E15: Invalid expression: globpath(&runtimepath, 'autoload/vimlint.vim', 1)
+" line    3:
+" E121: Undefined variable: vimlparser
+" E116: Invalid arguments for function string(vimlparser) . ', ' .
+" "globpath(&runtimepath, 'autoload/vimlint.vim', 1) = " .    string(vimlint))
+" E116: Invalid arguments for function 35
+" line    5:
+" E121: Undefined variable: vimlparser
+" 
