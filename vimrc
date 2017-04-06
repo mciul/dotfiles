@@ -239,6 +239,11 @@ augroup filetype_ruby
   " create a class from the word under the cursor
   autocmd FileType ruby nnoremap <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
 augroup END
+
+augroup filetype_lhs
+  autocmd!
+  autocmd FileType lhs inoremap <C-t> <esc>0a    <esc>A
+augroup END
 " }}}
 
 " vimscript filetype settings ------------------------------------- {{{
