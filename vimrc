@@ -141,21 +141,24 @@ set list listchars=tab:».,trail:·,nbsp:⎵
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
-" function from Drew Neil - vimcasts episode 4
-function! <SID>StripTrailingWhitespaces()
+" function from Drew Neil and Jonathan Palardy - vimcasts episode 4
+function! Preserve(command)
   " Preparation: save last search, and cursor position
   let _s=@/
   let l = line(".")
   let c = col(".")
   " Do the business
-  %s/\s\+$//e
+  execute a:command
   " Clean up: restore previous search history, and cursor position
   let @/=_s
   call cursor(l, c)
 endfunction
 
 " Delete trailing whitespace
-nnoremap <leader>W :call <SID>StripTrailingWhitespaces()<cr>
+nnoremap <leader>W :call Preserve("%s/\\s\\+$//e")<cr>
+
+" Fix indentation
+nnoremap <leader>= :call Preserve("normal gg=G")<cr>
 
 " Make it obvious where 80 characters is
 set textwidth=80
