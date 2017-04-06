@@ -60,7 +60,7 @@ Plugin 'tpope/vim-unimpaired'
 " Having lots of trouble with syntastic right now.
 " Try again later maybe?
 " Also, make sure Rubocop is installed
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 "
 " Plugin 'AndrewRadev/splitjoin'
 
