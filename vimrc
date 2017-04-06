@@ -284,7 +284,7 @@ augroup END
 
 augroup filetype_lhs
   autocmd!
-  autocmd FileType lhs inoremap <C-t> <esc>0a    <esc>A
+  autocmd FileType lhaskell inoremap <C-t> <esc>04a <esc>A
 augroup END
 " }}}
 
