@@ -92,6 +92,8 @@ let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_eruby_ruby_quiet_messages =
       \ {"regex": "possibly useless use of a variable in void context"}
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 
 " use rubocop instead of mri
 " let g:syntastic_ruby_checkers = ['MRI', 'rubocop']
@@ -196,8 +198,9 @@ inoremap jk <esc>
 
 " Editing in normal mode ------------------------------------------ {{{
 
-" scroll with the space bar
-nnoremap <leader><space> <C-f>
+" scroll with the space bar and - key
+nnoremap <leader><space> <PageDown>
+nnoremap - <PageUp>
 
 " quick save without chording
 nnoremap <leader>w :w<cr>
@@ -218,12 +221,15 @@ nnoremap Y y$
 " }}}
 
 " status line ----------------------------------------------------- {{{
-set statusline=%f         " Path to the file
-set statusline+=%5r       " readonly flag
-set statusline+=%4m       " modified flag
-set statusline+=%a        " arglist status
-set statusline+=\         " Separator space
-set statusline+=%y        " Filetype of the file
+set statusline=%f                               " Path to the file
+set statusline+=%5r                             " readonly flag
+set statusline+=%4m                             " modified flag
+set statusline+=%a                              " arglist status
+set statusline+=\                               " Separator space
+set statusline+=%y                              " Filetype of the file
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 set statusline+=%=        " Switch to the right side
 set statusline+=%l        " Current line
 set statusline+=,         " Separator
