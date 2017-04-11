@@ -143,15 +143,20 @@ set list listchars=tab:»\ ,trail:·,nbsp:⎵
 set nojoinspaces
 
 " function from Drew Neil and Jonathan Palardy - vimcasts episode 4
+
+function! ForgetSearch(command)
+  let _s=@/
+  execute a:command
+  let @/=_s
+endfunction
+
 function! Preserve(command)
   " Preparation: save last search, and cursor position
-  let _s=@/
   let l = line(".")
   let c = col(".")
   " Do the business
-  execute a:command
+  call ForgetSearch(a:command)
   " Clean up: restore previous search history, and cursor position
-  let @/=_s
   call cursor(l, c)
 endfunction
 
@@ -286,8 +291,10 @@ augroup END
 augroup filetype_lhs
   autocmd!
   autocmd FileType lhaskell inoremap <C-t> <esc>04a <esc>A
-  " this doesn't work for empty lines:
-  " nnoremap I 0l/\v\S<bar>$<cr>i
+  " skip past the initial > to find the beginning of the line
+  autocmd FileType lhaskell nnoremap ^ :call ForgetSearch("normal! 0/\\S\r")<cr>
+  " works for lines starting with > but not other lines:
+  "nnoremap I :s/\v^\>(\S<bar>$)@=/> /e<cr>0/\v\s(\S<bar>$)@=<cr>a
 augroup END
 
 " }}}
@@ -303,7 +310,6 @@ augroup END
 " Tentative - stuff recommended in "Learn Vimscript the Hard Way" - {{{
 
 set foldlevelstart=0
-
 " turn word to uppercase in insert mode
 inoremap <c-u> <esc>viwUea
 nnoremap <leader><c-u> mzviwU`z
