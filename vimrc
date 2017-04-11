@@ -47,15 +47,15 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'itchyny/vim-haskell-indent'
 
 " plugins to try (again) later
+" Plugin 'lukerandall/haskellmode-vim'
 "
 " Plugin 'ctrlpvim/ctrlp.vim'
 "
-" Having lots of trouble with syntastic right now.
-" Try again later maybe?
 " Also, make sure Rubocop is installed
-Plugin 'vim-syntastic/syntastic'
 "
 " Plugin 'AndrewRadev/splitjoin'
 
