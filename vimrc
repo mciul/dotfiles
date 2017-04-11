@@ -286,7 +286,10 @@ augroup END
 augroup filetype_lhs
   autocmd!
   autocmd FileType lhaskell inoremap <C-t> <esc>04a <esc>A
+  " this doesn't work for empty lines:
+  " nnoremap I 0l/\v\S<bar>$<cr>i
 augroup END
+
 " }}}
 
 " vimscript filetype settings ------------------------------------- {{{
