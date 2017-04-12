@@ -1,17 +1,33 @@
 " Highlight long lines (>80)
 
-autocmd BufEnter * highlight OverLength ctermbg=grey guibg=#592929 
-autocmd BufEnter * match OverLength /\%81v.*/
-autocmd BufEnter * let w:long_line_match = 1
+autocmd BufEnter * call LongLineHighlight()
 
-fu! LongLineHighlightToggle()
-  highlight OverLength ctermbg=grey guibg=#592929 
-  if exists('w:long_line_match') 
-    match OverLength //
-    unlet w:long_line_match
-  else 
-    match OverLength /\%81v.*/
-    let w:long_line_match = 1
+function LongLineHighlightToggle()
+  if exists('w:long_line_match') && w:long_line_match == 1
+    call LongLineHighlightOff()
+  else
+    call LongLineHighlightOn()
   endif
 endfunction
-map <Leader>l :call LongLineHighlightToggle()<CR>
+
+fu! LongLineHighlightOn()
+  let w:long_line_match = 1
+  call LongLineHighlight()
+endfunction
+
+fu! LongLineHighlightOff()
+  let w:long_line_match = 0
+  call LongLineHighlight()
+endfunction
+
+fu! LongLineHighlight()
+  highlight OverLength ctermbg=grey guibg=#592929
+  if !exists('w:long_line_match')
+    let w:long_line_match = 1
+  endif
+  if (w:long_line_match == 1)
+    match OverLength /\%81v.*/
+  else
+    match OverLength //
+  endif
+endfunction

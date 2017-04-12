@@ -171,8 +171,15 @@ set textwidth=80
 
 if (v:version >= 703)
   set colorcolumn=+1
-  " disable end of line highlighting?
+else
+  augroup long_lines
+    autocmd!
+    autocmd BufEnter * call LongLineHighlight()
+  augroup END
 end
+
+nnoremap <leader>L :call LongLineHighlightToggle()<cr>
+
 " }}}
 
 " line numbers ------------------------------------------------- {{{
