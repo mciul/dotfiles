@@ -290,16 +290,16 @@ augroup END
 augroup filetype_ruby
   autocmd!
   " create a function definition
-  autocmd FileType ruby nnoremap <localleader>d o<cr>def <cr>end<esc>kA
+  autocmd FileType ruby nnoremap <buffer> <localleader>d o<cr>def <cr>end<esc>kA
   " create a class from the word under the cursor
-  autocmd FileType ruby nnoremap <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
+  autocmd FileType ruby nnoremap <buffer> <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
 augroup END
 
 augroup filetype_lhs
   autocmd!
-  autocmd FileType lhaskell inoremap <C-t> <esc>04a <esc>A
+  autocmd FileType lhaskell inoremap <buffer> <C-t> <esc>04a <esc>A
   " skip past the initial > to find the beginning of the line
-  autocmd FileType lhaskell nnoremap ^ :call ForgetSearch("normal! 0/\\S\r")<cr>
+  autocmd FileType lhaskell nnoremap <buffer> ^ :call ForgetSearch("normal! 0/\\S\r")<cr>
   " works for lines starting with > but not other lines:
   "nnoremap I :s/\v^\>(\S<bar>$)@=/> /e<cr>0/\v\s(\S<bar>$)@=<cr>a
 augroup END
