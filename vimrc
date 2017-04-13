@@ -118,6 +118,7 @@ let g:html_indent_tags = 'li\|p'
 runtime macros/matchit.vim
 " }}}
 
+" window management -------------------------------------------------------{{{
 " Tmux-compatible window movement ------------------------------- {{{
 let g:tmux_navigator_no_mappings = 1
 
@@ -126,6 +127,10 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
+" }}}
+
+" make the first two vertical splits 85 columns wide
+nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
 " }}}
 
 " whitespace and columns ------------------------------------ {{{
@@ -229,12 +234,18 @@ nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gu :Gpull<cr>
 " }}}
 
-" make the first two vertical splits 85 columns wide
-nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
-
 " Switching modes ------------------------------------------ {{{
-" Escape alternatives
+" Exit insert mode with jk
 inoremap jk <esc>
+
+" Open the command-line window without the shift key
+nnoremap q; q:
+
+" Quickly exit the command-line window
+augroup cmd_window
+  autocmd!
+  autocmd CmdwinEnter * nnoremap <buffer> <C-c> <C-\><C-n>
+augroup END
 " }}}
 
 " Editing in normal mode ------------------------------------------ {{{
