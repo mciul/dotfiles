@@ -1,7 +1,7 @@
+" Basic settings -------------------------------------------------- {{{
 let mapleader = " "
 let maplocalleader = "\\"
 
-" Basic settings -------------------------------------------------- {{{
 set nocompatible              " be iMproved, required
 
 set backspace=2   " Backspace deletes like most programs in insert mode
@@ -81,7 +81,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 " }}}
-
 
 " colors ----------------------------------------------------------- {{{
 " Setup term color support - this might be unnecessary
