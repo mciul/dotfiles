@@ -74,3 +74,6 @@ set -o vi
 
 # Set shell timeout to one week
 export TMOUT=$((60*60*24*7))
+
+# force tmux to use 256 colors
+alias tmux='tmux -2'
