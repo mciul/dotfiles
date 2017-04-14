@@ -2,7 +2,7 @@
 
 autocmd BufEnter * call LongLineHighlight()
 
-function LongLineHighlightToggle()
+function! LongLineHighlightToggle()
   if exists('w:long_line_match') && w:long_line_match == 1
     call LongLineHighlightOff()
   else
