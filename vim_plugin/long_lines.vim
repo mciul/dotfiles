@@ -21,12 +21,13 @@ fu! LongLineHighlightOff()
 endfunction
 
 fu! LongLineHighlight()
+  " highlight link OverLength ColorColumn
   highlight OverLength ctermbg=grey guibg=#592929
   if !exists('w:long_line_match')
     let w:long_line_match = 1
   endif
   if (w:long_line_match == 1)
-    match OverLength /\%81v.*/
+    match OverLength /\%81v./
   else
     match OverLength //
   endif

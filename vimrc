@@ -146,13 +146,13 @@ set list listchars=tab:»\ ,trail:·,nbsp:⎵
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
-" function from Drew Neil and Jonathan Palardy - vimcasts episode 4
-
 function! ForgetSearch(command)
   let _s=@/
   execute a:command
   let @/=_s
 endfunction
+
+" function from Drew Neil and Jonathan Palardy - vimcasts episode 4
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position
