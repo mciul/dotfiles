@@ -61,6 +61,7 @@ Plugin 'altercation/vim-colors-solarized'
 " Also, make sure Rubocop is installed
 "
 " Plugin 'AndrewRadev/splitjoin'
+" Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
