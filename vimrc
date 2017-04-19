@@ -52,7 +52,6 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'godlygeek/tabular'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-scripts/ZoomWin'
 
 " plugins to try (again) later
 " Plugin 'lukerandall/haskellmode-vim'
