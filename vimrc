@@ -132,11 +132,11 @@ nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
 
 " make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
-" }}}
 
 " this is the unmapped behavior of <C-l> I think, but since
 " we remapped <C-l> it needs a leader:
-nnoremap <leader> <C-l> :redraw!<cr>:echo "Vim redrawn"<cr>
+nnoremap <leader><C-l> :redraw!<cr>:echo "Vim redrawn"<cr>
+" }}}
 
 " whitespace and columns ------------------------------------ {{{
 
