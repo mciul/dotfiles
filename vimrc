@@ -293,6 +293,11 @@ set statusline+=,         " Separator
 set statusline+=%-6.c     " Current column
 " }}}
 
+" Tabularize bindings -------------------------------------------- {{{
+nnoremap <localleader>t= :Tabularize /=<cr>
+
+" }}}
+
 " filetype settings ---------------------------------------------- {{{
 " text filetype settings ----------------------------------- {{{
 augroup filetype_text
@@ -309,6 +314,8 @@ augroup filetype_ruby
   autocmd FileType ruby nnoremap <buffer> <localleader>d o<cr>def <cr>end<esc>kA
   " create a class from the word under the cursor
   autocmd FileType ruby nnoremap <buffer> <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
+  autocmd FileType ruby nnoremap <buffer> <localleader>t: :Tabularize /:\S*<cr>
+  autocmd FileType ruby vnoremap <buffer> <localleader>t: :Tabularize /:\S*<cr>
 augroup END
 
 augroup filetype_lhs
