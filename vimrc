@@ -316,6 +316,8 @@ augroup filetype_ruby
   autocmd FileType ruby nnoremap <buffer> <localleader>c yiw?\v^\s+class\s<cr>Oclass <esc>po<cr>end<cr><esc>kkk
   autocmd FileType ruby nnoremap <buffer> <localleader>t: :Tabularize /:\S*<cr>
   autocmd FileType ruby vnoremap <buffer> <localleader>t: :Tabularize /:\S*<cr>
+  " experimental : change curly brackets to do block:
+  autocmd FileType ruby nnoremap <buffer> <localleader>{ lF{sdo<esc>2f<bar>lr<cr>$dawoend<esc>
 augroup END
 
 augroup filetype_lhs
