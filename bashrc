@@ -37,8 +37,8 @@ alias lla='/bin/ls -lA'
 alias lll='/bin/ls -lL'      # follow symlinks
 alias llla='/bin/ls -lLA'
 
-llth () 
-{ 
+llth ()
+{
   ls -lt $1 | head
 }
 
