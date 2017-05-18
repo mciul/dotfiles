@@ -284,6 +284,8 @@ set statusline+=%4m                             " modified flag
 set statusline+=%a                              " arglist status
 set statusline+=\                               " Separator space
 set statusline+=%y                              " Filetype of the file
+set statusline+=\                               " Separator space
+set statusline+=%{fugitive#statusline()}        " git status
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -291,6 +293,7 @@ set statusline+=%=        " Switch to the right side
 set statusline+=%l        " Current line
 set statusline+=,         " Separator
 set statusline+=%-6.c     " Current column
+set statusline+=%P        " percent through file
 " }}}
 
 " Tabularize bindings -------------------------------------------- {{{
