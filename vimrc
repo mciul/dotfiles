@@ -344,7 +344,7 @@ augroup END
 " latex filetype settings ----------------------------------------  {{{
 augroup filetype_text
   autocmd!
-  autocmd FileType tex nnoremap <buffer> <leader>l :!pdflatex %<CR>
+  autocmd FileType tex nnoremap <buffer> <leader>l :w<CR>:!pdflatex %<CR>
 augroup END
 " }}}
 
