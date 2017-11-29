@@ -89,12 +89,16 @@ filetype plugin indent on    " required
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("g:syntax_on")
-  let g:solarized_termcolors=256    "default value is 16
-  syntax enable
-  set background=light
-  colorscheme solarized
-endif
+try
+  if (&t_Co > 2 || has("gui_running")) && !exists("g:syntax_on")
+    let g:solarized_termcolors=256    "default value is 16
+    syntax enable
+    set background=light
+    colorscheme solarized
+  endif
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
 " }}}
 
 " syntastic ------------------------------------------------------- {{{
@@ -333,7 +337,10 @@ augroup END
 "         bar
 "         baz(quux)
 "       end
+" test: def self.no_more_receiver(ehad)
+" }}}
 
+" literate haskell filetype settings -----------------------------  {{{
 augroup filetype_lhs
   autocmd!
   autocmd FileType lhaskell inoremap <buffer> <C-t> <esc>04a <esc>A
@@ -343,6 +350,13 @@ augroup filetype_lhs
   "nnoremap I :s/\v^\>(\S<bar>$)@=/> /e<cr>0/\v\s(\S<bar>$)@=<cr>a
 augroup END
 
+" }}}
+
+" latex filetype settings ----------------------------------------  {{{
+augroup filetype_text
+  autocmd!
+  autocmd FileType tex nnoremap <buffer> <leader>l :!pdflatex %<CR>
+augroup END
 " }}}
 
 " vimscript filetype settings ------------------------------------- {{{
