@@ -77,3 +77,9 @@ export TMOUT=$((60*60*24*7))
 
 # force tmux to use 256 colors
 alias tmux='tmux -2'
+
+# print out the header line and line $1 of file $2 and transpose columns
+tabline ()
+{
+    sed -n -e 1p -e $1p $2 | transpose-tsv
+}

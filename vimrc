@@ -321,12 +321,18 @@ augroup filetype_ruby
   autocmd FileType ruby vnoremap <buffer> <localleader>t: :Tabularize /:\S*<cr>
   " experimental : change curly brackets to do block:
   autocmd FileType ruby nnoremap <buffer> <localleader>{ lF{sdo<esc>2f<bar>lr<cr>$dawoend<esc>
+  " experimental : change do block to curly brackets:
+  autocmd FileType ruby nnoremap <buffer> <localleader>} $?do<cr>cw{<esc>/end<cr>ce}<esc>%
+
   " This operator-pending mapping matches a 'receiver' -
   " i.e. a keyword followed by a dot
   autocmd FileType ruby onoremap <buffer> r :<c-u>normal! hf.vb<cr>
 augroup END
 
-" test: def self.no_more_receiver(ehad)
+" test: do |foo|
+"         bar
+"         baz(quux)
+"       end
 
 augroup filetype_lhs
   autocmd!
