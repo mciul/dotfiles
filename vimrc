@@ -89,12 +89,16 @@ filetype plugin indent on    " required
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("g:syntax_on")
-  let g:solarized_termcolors=256    "default value is 16
-  syntax enable
-  set background=light
-  colorscheme solarized
-endif
+try
+  if (&t_Co > 2 || has("gui_running")) && !exists("g:syntax_on")
+    let g:solarized_termcolors=256    "default value is 16
+    syntax enable
+    set background=light
+    colorscheme solarized
+  endif
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
 " }}}
 
 " syntastic ------------------------------------------------------- {{{
