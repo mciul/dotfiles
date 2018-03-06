@@ -350,7 +350,13 @@ augroup filetype_lhs
   " works for lines starting with > but not other lines:
   "nnoremap I :s/\v^\>(\S<bar>$)@=/> /e<cr>0/\v\s(\S<bar>$)@=<cr>a
 augroup END
+" }}}
 
+" coffeescript filetype settings ---------------------------------  {{{
+augroup filetype_coffeescript
+  autocmd!
+  autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=4 expandtab
+augroup END
 " }}}
 
 " latex filetype settings ----------------------------------------  {{{
