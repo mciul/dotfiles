@@ -138,6 +138,10 @@ nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
 " maximize vertically
 nnoremap <leader>- :wincmd _<cr>
 
+" maximize vertically and horizontally
+" <C-w><C-z> should still do the default close preview
+nnoremap <C-w>z :wincmd _<cr>:wincmd \|<cr>
+
 " make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
 
