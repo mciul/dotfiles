@@ -135,6 +135,9 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
 " }}}
 
+" maximize vertically
+nnoremap <leader>- :wincmd _<cr>
+
 " make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
 
