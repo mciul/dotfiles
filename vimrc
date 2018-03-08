@@ -138,7 +138,7 @@ nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
 " maximize vertically
 nnoremap <leader>- :wincmd _<cr>
 
-" maximize vertically and horizontally
+" maximize vertically and horizontally (zoom)
 " <C-w><C-z> should still do the default close preview
 nnoremap <C-w>z :wincmd _<cr>:wincmd <bar><cr>
 
