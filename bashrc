@@ -43,24 +43,28 @@ llth ()
 }
 
 # shares history between tabs with prompt_command
-SHELL_SESSION_HISTORY=0
-HISTSIZE=9000
-HISTFILESIZE=$HISTSIZE
-HISTCONTROL=ignorespace:ignoredups
 
-_bash_history_sync() {
-  builtin history -a         #1 appends command to histfile
-  HISTFILESIZE=$HISTSIZE     #2 sets max size
-  builtin history -c         #3 clears current session history
-  builtin history -r         #4 reads the updated histfile and makes that the current history
-}
+# commented out because I'm not sure I like it anymore,
+# and it's having problems on Mac
 
-history() {                  #5 overrides build in history to sync it before display
-  _bash_history_sync
-  builtin history "$@"
-}
+# SHELL_SESSION_HISTORY=0
+# HISTSIZE=9000
+# HISTFILESIZE=$HISTSIZE
+# HISTCONTROL=ignorespace:ignoredups
 
-PROMPT_COMMAND=_bash_history_sync
+# _bash_history_sync() {
+#   builtin history -a         #1 appends command to histfile
+#   HISTFILESIZE=$HISTSIZE     #2 sets max size
+#   builtin history -c         #3 clears current session history
+#   builtin history -r         #4 reads the updated histfile and makes that the current history
+# }
+
+# history() {                  #5 overrides build in history to sync it before display
+#   _bash_history_sync
+#   builtin history "$@"
+# }
+
+# PROMPT_COMMAND=_bash_history_sync
 
 # Include date and time in prompt
 export PS1='\D{%b%d %T} \[\e[1m\]\h:\W $\[\e[0m\] '
@@ -77,3 +81,9 @@ export TMOUT=$((60*60*24*7))
 
 # force tmux to use 256 colors
 alias tmux='tmux -2'
+
+# print out the header line and line $1 of file $2 and transpose columns
+tabline ()
+{
+    sed -n -e 1p -e $1p $2 | transpose-tsv
+}

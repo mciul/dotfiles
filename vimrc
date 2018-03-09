@@ -52,6 +52,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'godlygeek/tabular'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'kchmck/vim-coffee-script'
 
 " plugins to try (again) later
 " Plugin 'lukerandall/haskellmode-vim'
@@ -89,12 +90,16 @@ filetype plugin indent on    " required
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("g:syntax_on")
-  let g:solarized_termcolors=256    "default value is 16
-  syntax enable
-  set background=light
-  colorscheme solarized
-endif
+try
+  if (&t_Co > 2 || has("gui_running")) && !exists("g:syntax_on")
+    let g:solarized_termcolors=256    "default value is 16
+    syntax enable
+    set background=light
+    colorscheme solarized
+  endif
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
 " }}}
 
 " syntastic ------------------------------------------------------- {{{
@@ -130,8 +135,18 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>p :TmuxNavigatePrevious<cr>
 " }}}
 
+" maximize vertically
+nnoremap <leader>- :wincmd _<cr>
+
+" maximize vertically and horizontally (zoom)
+" <C-w><C-z> should still do the default close preview
+nnoremap <C-w>z :wincmd _<cr>:wincmd <bar><cr>
+
 " make the first two vertical splits 85 columns wide
 nnoremap <leader>v 3h:vertical resize 85<cr>l:vertical resize 85<cr>
+
+" automatically resize when window changes
+autocmd VimResized * :wincmd =
 
 " this is the unmapped behavior of <C-l> I think, but since
 " we remapped <C-l> it needs a leader:
@@ -321,11 +336,18 @@ augroup filetype_ruby
   autocmd FileType ruby vnoremap <buffer> <localleader>t: :Tabularize /:\S*<cr>
   " experimental : change curly brackets to do block:
   autocmd FileType ruby nnoremap <buffer> <localleader>{ lF{sdo<esc>2f<bar>lr<cr>$dawoend<esc>
+  " experimental : change do block to curly brackets:
+  autocmd FileType ruby nnoremap <buffer> <localleader>} $?do<cr>cw{<esc>/end<cr>ce}<esc>%
+
   " This operator-pending mapping matches a 'receiver' -
   " i.e. a keyword followed by a dot
   autocmd FileType ruby onoremap <buffer> r :<c-u>normal! hf.vb<cr>
 augroup END
 
+" test: do |foo|
+"         bar
+"         baz(quux)
+"       end
 " test: def self.no_more_receiver(ehad)
 " }}}
 
@@ -338,7 +360,13 @@ augroup filetype_lhs
   " works for lines starting with > but not other lines:
   "nnoremap I :s/\v^\>(\S<bar>$)@=/> /e<cr>0/\v\s(\S<bar>$)@=<cr>a
 augroup END
+" }}}
 
+" coffeescript filetype settings ---------------------------------  {{{
+augroup filetype_coffeescript
+  autocmd!
+  autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=4 expandtab
+augroup END
 " }}}
 
 " latex filetype settings ----------------------------------------  {{{
