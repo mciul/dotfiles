@@ -249,7 +249,7 @@ nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gl :Glog<cr>
-nnoremap <leader>gc :Gcommit -av<cr>
+nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gu :Gpull<cr>
 " }}}
