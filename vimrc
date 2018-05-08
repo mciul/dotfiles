@@ -256,7 +256,7 @@ nnoremap <leader>gu :Gpull<cr>
 
 " Switching modes ------------------------------------------ {{{
 " Exit insert mode with jk
-inoremap jk <esc>
+" inoremap jk <esc>
 
 " Open the command-line window without the shift key
 nnoremap q; q:
@@ -266,6 +266,10 @@ augroup cmd_window
   autocmd!
   autocmd CmdwinEnter * nnoremap <buffer> <C-c> <C-\><C-n>
 augroup END
+
+" Open netrw at the location of the current buffer
+nnoremap <silent> <leader>e :Explore<CR>
+
 " }}}
 
 " Editing in normal mode ------------------------------------------ {{{
@@ -393,7 +397,6 @@ nnoremap <leader><c-u> mzviwU`z
 
 " quickly edit and source vimrc file
 " TODO: figure out how to connect with fugitive
-nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "abbreviations
