@@ -298,8 +298,8 @@ nnoremap Y y$
 
 " Toggle autowrap of entered text, unimpaired-style
 
-nnoremap [ot :setlocal formatoptions+=t<cr>
-nnoremap ]ot :setlocal formatoptions-=t<cr>
+nnoremap [ot :setlocal formatoptions+=tc<cr>
+nnoremap ]ot :setlocal formatoptions-=tc<cr>
 
 " }}}
 
