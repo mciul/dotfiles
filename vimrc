@@ -295,6 +295,12 @@ nnoremap <leader>R i <esc>r
 
 " Make Y act like C and D, not like yy
 nnoremap Y y$
+
+" Toggle autowrap of entered text, unimpaired-style
+
+nnoremap [ot :setlocal formatoptions+=t<cr>
+nnoremap ]ot :setlocal formatoptions-=t<cr>
+
 " }}}
 
 " status line ----------------------------------------------------- {{{
