@@ -64,6 +64,9 @@ Plugin 'kchmck/vim-coffee-script'
 "
 " Plugin 'AndrewRadev/splitjoin'
 " Plugin 'ervandew/supertab'
+"
+" requires tmux >=2.0
+" Plugin 'christoomey/vim-tmux-runner'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
