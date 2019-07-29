@@ -1,5 +1,3 @@
-[ -e ~/.bashrc.local ] && source ~/.bashrc.local
-
 # detect what kind of system we're running on
 platform='unknown'
 unamestr=`uname`
@@ -87,3 +85,7 @@ tabline ()
 {
     sed -n -e 1p -e $1p $2 | transpose-tsv
 }
+
+[ -f ~/.aws_credentials ] && source ~/.aws_credentials
+
+[ -e ~/.bashrc.local ] && source ~/.bashrc.local
