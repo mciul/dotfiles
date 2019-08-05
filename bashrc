@@ -86,6 +86,17 @@ tabline ()
     sed -n -e 1p -e $1p $2 | transpose-tsv
 }
 
+# call this with a class_def id to update lui dev db
+luidevstart() {
+  dbsync -a rp -b rd -c "class_def $1"
+  dbsync -a rp -b rd -c 'copy a to b' -t projects
+  dbsync -a rp -b rd -c 'copy a to b' -t tasks
+  dbsync -a rp -b rd -c 'copy a to b' -t kit_types
+  dbsync -a rp -b rd -c 'copy a to b' -t node_classes
+  dbsync -a rp -b rd -c 'copy a to b' -t styles
+  dbsync -a rp -b rd -c 'copy a to b' -t workflows
+}
+
 [ -f ~/.aws_credentials ] && source ~/.aws_credentials
 
 [ -e ~/.bashrc.local ] && source ~/.bashrc.local
