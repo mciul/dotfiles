@@ -193,7 +193,7 @@ endfunction
 nnoremap <leader>W :call Preserve("%s/\\s\\+$//e")<cr>
 
 " Rewrap current line
-nnoremap <localleader>w 80<Bar>F<Space>r<CR><Esc>j
+nnoremap <localleader>w 80<Bar>F<Space>r<CR><Esc>J
 
 " Fix indentation
 nnoremap <leader>= :call Preserve("normal gg=G")<cr>
