@@ -238,14 +238,20 @@ nnoremap <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 " }}}
 
+" black settings ---------------------------------------------- {{{
+
+let g:black_linelength = 79
+
+" }}}
+
 " fugitive key mappings --------------------------------------- {{{
 
 nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gs :G<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gc :Gcommit -v<cr>
-nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gp :G push<cr>
 nnoremap <leader>gu :Gpull<cr>
 " }}}
 
@@ -326,6 +332,13 @@ augroup filetype_text
   autocmd!
   autocmd BufRead,BufNewFile *.txt setfiletype text
   autocmd FileType text setlocal wrap linebreak nolist
+augroup END
+" }}}
+
+" python filetype settings ---------------------------------- {{{
+augroup filetype_python
+  autocmd!
+  autocmd FileType python setl shiftwidth=4 expandtab
 augroup END
 " }}}
 
